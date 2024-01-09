@@ -1,0 +1,5 @@
+path_kinetics,filename_kinetics,path_isotherm,filename_isotherm,color,name,cycleNr,analyze,sample_group
+../../../../data/water_sorption/DVS/kinetics/grains/Zeolite3A/,MolecularSieve3A_kinetics_TGApan-2022-08-13 18-46-13_dmEnd.xls,,,green,Zeolite3A fine powder,1,Y,1
+../../../../data/water_sorption/DVS/kinetics/grains/Zeolite3A/,MolecularSieve3A_2beads_kinetics_27C-2023-10-05 22-11-43_dmEnd.xls,,,green,Zeolite3A two grains,3,Y,1
+../../../../data/water_sorption/DVS/kinetics/grains/activated-charcoal/,activated-charcoal_2granules_kinetics_27C-2023-10-05 22-11-43.xls,,,green,activated charcoal two grains,3,Y,2
+../../../../data/water_sorption/DVS/kinetics/grains/activated-charcoal/,activated-charcoal_kinetics_TGApan-2022-08-13 18-46-13.xls,,,green,activated charcoal fine powder,1,Y,2

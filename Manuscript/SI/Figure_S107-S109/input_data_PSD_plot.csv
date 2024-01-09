@@ -1,0 +1,12 @@
+name,path_kinetics,filename_kinetics,path_isotherm,filename_isotherm,path_zeo,filename_zeo
+CAU-10-H,pyGAPS_results/,CAU-10-H_from_kinetics.aif.csv,pyGAPS_results/,CAU-10-H_from_isotherm.aif.csv,cifs_psd/,CELZUQ.psd_histo
+Al-fumarate,pyGAPS_results/,Al-fumarate_from_kinetics.aif.csv,pyGAPS_results/,Al-fumarate_from_isotherm.aif.csv,cifs_psd/,DOYBEA.psd_histo
+MIL-160,pyGAPS_results/,MIL-160_from_kinetics.aif.csv,pyGAPS_results/,MIL-160_from_isotherm.aif.csv,cifs_psd/,PIBZOS.psd_histo
+MOF-303,pyGAPS_results/,MOF-303_from_kinetics.aif.csv,pyGAPS_results/,MOF-303_from_isotherm.aif.csv,cifs_psd/,RUNDIQ.psd_histo
+ROS-037,pyGAPS_results/,ROS-037_from_kinetics.aif.csv,pyGAPS_results/,ROS-037_from_isotherm.aif.csv,cifs_psd/,MABJUV.psd_histo
+ROS-039,pyGAPS_results/,ROS-039_from_kinetics.csv,pyGAPS_results/,ROS-039_from_isotherm.csv,cifs_psd/,LATPIG.psd_histo
+ROS-040,pyGAPS_results/,ROS-040_from_kinetics.aif.csv,pyGAPS_results/,ROS-040_from_isotherm.aif.csv,cifs_psd/,AWAREV.psd_histo
+Mg-CUK-1,pyGAPS_results/,Mg-CUK-1_from_kinetics.aif.csv,pyGAPS_results/,Mg-CUK-1_from_isotherm.aif.csv,cifs_psd/,NUDLIJ.psd_histo
+[Co2(mal)2(bpy)],pyGAPS_results/,[Co2(mal)2(bpy)]_from_kinetics.aif.csv,pyGAPS_results/,[Co2(mal)2(bpy)]_from_isotherm.aif.csv,cifs_psd/,XEJWUG.psd_histo
+[Ni2(mal)2(bpy)],pyGAPS_results/,[Ni2(mal)2(bpy)]_from_kinetics.aif.csv,pyGAPS_results/,[Ni2(mal)2(bpy)]_from_isotherm.aif.csv,cifs_psd/,XEJXAN.psd_histo
+[Ca2Zr(C2O4)2],pyGAPS_results/,[Ca2Zr(C2O4)2]_from_kinetics.aif.csv,pyGAPS_results/,[Ca2Zr(C2O4)2]_from_isotherm.aif.csv,cifs_psd/,BEVRAW.psd_histo

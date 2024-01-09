@@ -1,0 +1,13 @@
+path_kinetics,filename_kinetics,path_isotherm,filename_isotherm,color,name,cycleNr,analyze,sample_group
+../../../../data/water_sorption/DVS/kinetics/different_fractions/CAU-10-H/,CAU-10-H_NK-1531_25-50um_TGApan_kinetics-2022-08-04 15-16-55.xls,,,green,CAU-10-H 25-50um,3,Y,1
+../../../../data/water_sorption/DVS/kinetics/different_fractions/CAU-10-H/,CAU-10-H_NK-1531_100-150um_TGApan_kinetics-2022-08-04 15-16-55.xls,,,green,CAU-10-H 100-150um,3,Y,1
+../../../../data/water_sorption/DVS/kinetics/different_fractions/Bentonite/,Bentonite_sieve6h_25-50um_kinetics_27C-2023-11-21 11-05-06.xls,,,green,Bentonite 25-50um,1,Y,2
+../../../../data/water_sorption/DVS/kinetics/different_fractions/Bentonite/,Bentonite_sieve6h_below25um_kinetics_27C-2023-11-21 11-05-06.xls,,,green,Bentonite below 25um,1,Y,2
+../../../../data/water_sorption/DVS/kinetics/different_fractions/mont/,Montmorillonite_50-100um_kinetics_27C-2023-10-09 15-11-51.xls,,,green,Montmorillonite 50-100um,1,Y,3
+../../../../data/water_sorption/DVS/kinetics/different_fractions/mont/,Montmorillonite_below25um_kinetics_27C-2023-10-09 15-11-51.xls,,,green,Montmorillonite below 25um,1,Y,3
+../../../../data/water_sorption/DVS/kinetics/different_fractions/Al-fumarate/,Al-fumarate_NK-1-1091_25-50um_TGApan_kinetics-2022-08-05 15-33-21.xls,,,green,Al-fumarate 25-50um,3,Y,4
+../../../../data/water_sorption/DVS/kinetics/different_fractions/Al-fumarate/,AL-fumarate_NK-1-1091_50-100um_kinetics_27C_5mg-2021-06-16 19-38-13.xls,,,green,Al-fumarate 50-100um,3,Y,4
+../../../../data/water_sorption/DVS/kinetics/different_fractions/MIL-160/,MIL-160_DJO-2-500_50-100um_TGApan_kinetics-2022-08-07 21-04-34.xls,,,green,MIL-160 50-100um,3,Y,5
+../../../../data/water_sorption/DVS/kinetics/different_fractions/MIL-160/,MIL-160_DJO-2-500_100-150um_TGApan_kinetics-2022-08-07 21-04-34.xls,,,green,MIL-160 100-150um,3,Y,5
+../../../../data/water_sorption/DVS/kinetics/different_fractions/ROS-037/,AAB-6-74_50-100um_TGApan_kinetics_27C-2023-10-06 15-23-18.xls,,,green,ROS-037 50-100um,0,Y,6
+../../../../data/water_sorption/DVS/kinetics/different_fractions/ROS-037/,AAB-6-74_below25um_TGApan_kinetics_27C-2023-10-06 15-23-18.xls,,,green,ROS-037 below 25um,0,Y,6

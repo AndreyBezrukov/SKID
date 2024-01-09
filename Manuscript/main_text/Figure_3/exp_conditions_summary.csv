@@ -1,0 +1,61 @@
+,type,filename,instrument,sample_mass,temperature,comments,method
+0,isotherm,syloid_isotherm_25C-2021-03-19 23-03-21.xls,DVS-Advantage-Plus,5.2828,Temp. [celsius]: 24.17 +- 1.15,User:SD,20210115_SD_method_0.05_25C
+0,kinetics,Syloid_kinetics_50-100um_27C_12mg-2021-07-15 13-38-52.xls,DVS-Advantage-Plus,10.676,Temp. [celsius]: 4701.46 +- 0.21,DJO,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,20191224_Zeoleite13X - Tue 24 Dec 2019 13-41-50.xlsx,DVS-INTRINSIC,42.2604,Actual Sample Temp: 27.06 +- 0.65,20191224_Zeoleite13X,C:\DVS-Intrinsic\method\20191218_Repetition_Isotherm27C_0006dmdt_6h_40C_4h27C.sao
+0,kinetics,Zeolite13X_TGApan_kinetics-2022-05-04 21-27-59_dmEnd.xls,DVS-Advantage-Plus,14.4047,Temp. [celsius]: 27.19 +- 7.28,"User: AAB, MKBR8919V",20220420_kinetics1_27C_activation150C_60and90_dmdt001
+0,isotherm,CAU-10-H_NK-1-1531_isotherm_-2021-06-12 15-33-08.xlsx,DVS-Advantage-Plus,12.4041,Temp. [celsius]: 26.41 +- 3.05,AAB,20210527_27C_400cc_act100C
+0,kinetics,CAU-10-H_NK-1-153_kinetics_20mg_27C_50-100-2021-06-24 13-11-08_1.xls,DVS-Advantage-Plus,20.2198,Temp. [celsius]: 26.43 +- 3.66,DJO,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,MIL-100Fe_SS-2-1232_isotherm_27C-2021-07-07 00-30-29.xls,DVS-Advantage-Plus,7.0627,Temp. [celsius]: 26.35 +- 3.14,AAB,20210707_27C_400cc_act100C
+0,kinetics,MIL-100Fe_SS-2-1232_50-100um_9mg-2022-06-11 19-51-35.xls,DVS-Advantage-Plus,6.2617,Temp. [celsius]: 26.54 +- 4.00,User: AAB 100C Activation,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,MolecularSieve3A_isotherm_27C-2022-08-14 21-28-21.xls,DVS-Advantage-Plus,16.6396,Temp. [celsius]: 26.06 +- 0.07,"User: AAB, crushed beads, supelco, Lot K54085304 207, 1.05704.1000, 1kg",20210820_27C_400cc_noact
+0,kinetics,MolecularSieve3A_kinetics_TGApan-2022-08-13 18-46-13_dmEnd.xls,DVS-Advantage-Plus,16.6596,Temp. [celsius]: 27.81 +- 8.90,"User: AAB, crushed beads, supelco, Lot K54085304 207, 1.05704.1000, 1kg",20220420_kinetics1_27C_activation150C3h_60and90_dmdt001
+0,isotherm,activated-charcoal_isotherm_27C-2022-08-14 21-28-21.xls,DVS-Advantage-Plus,9.9055,Temp. [celsius]: 26.06 +- 0.07,"User: AAB, untreated, granules crushed, C2889-500g, lot MKBR2258V",20210820_27C_400cc_noact
+0,kinetics,activated-charcoal_kinetics_TGApan-2022-08-13 18-46-13.xls,DVS-Advantage-Plus,9.7977,Temp. [celsius]: 27.81 +- 8.90,"User: AAB, untreated, granules crushed, C2889-500g, lot MKBR2258V",20220420_kinetics1_27C_activation150C3h_60and90_dmdt001
+0,isotherm,Aluminum oxide_isotherm_27C-2022-06-25 06-20-08_1.xls,DVS-Advantage-Plus,23.0881,Temp. [celsius]: 27.11 +- 7.20,"User AAB, 06300-5kg, lot BCCD2274",20220625_27C_400cc_act150C_dmdt0_05
+0,kinetics,Aluminum oxide_kinetics-2022-06-27 08-22-45.xls,DVS-Advantage-Plus,23.1313,Temp. [celsius]: 28.10 +- 9.73,"User AAB, 06300-5kg, lot BCCD2274",20220420_kinetics1_27C_activation150C3h_60and90_dmdt001
+0,isotherm,Bentonite_isotherm_27C-2022-06-25 06-20-08_1.xls,DVS-Advantage-Plus,17.9989,Temp. [celsius]: 27.11 +- 7.20,"User AAB, 285234-500G, lot MKBL9172V, sigma",20220625_27C_400cc_act150C_dmdt0_05
+0,kinetics,Bentonite_kinetics-2022-06-24 19-08-04.xls,DVS-Advantage-Plus,17.9819,Temp. [celsius]: 28.41 +- 10.19,"User AAB, 285234-500G, lot MKBL9172V, sigma",20220420_kinetics1_27C_activation150C_60and90_dmdt001
+0,isotherm,Montmorillonite_isotherm_27C_TGApan-2022-10-04 14-48-28.xls,DVS-Advantage-Plus,15.5766,Temp. [celsius]: 26.37 +- 3.64,"User: AAB, Sigma 281522-1KG, lot STBD5385V",20220915_27C_400cc_act100C_02dmdt
+0,kinetics,Montmorillonite_kinetics_27C_TGApan-2022-10-05 16-50-39.xls,DVS-Advantage-Plus,15.5727,Temp. [celsius]: 26.64 +- 4.67,"User: AAB, Sigma 281522-1KG, lot STBD5385V",20220420_kinetics1_27C_activation100C_60and90_X2_dmdt001
+0,isotherm,microcrystalline_cellulose_isotherm_27C_TGApan-2022-10-04 14-48-28.xls,DVS-Advantage-Plus,11.1082,Temp. [celsius]: 26.37 +- 3.64,User: AAB,20220915_27C_400cc_act100C_02dmdt
+0,kinetics,microcrystalline_cellulose_TGApan_27C_kinetics-2022-09-11 06-03-54.xls,DVS-Advantage-Plus,14.2849,Temp. [celsius]: 25.89 +- 0.09,User: AAB,20200707_ROS-37_pellets
+0,isotherm,HP-MCP_isotherm_27C_TGApan-2022-10-06 11-58-55.xls,DVS-Advantage-Plus,14.4488,Temp. [celsius]: 26.51 +- 4.16,User: AAB,20220915_27C_400cc_act100C_02dmdt
+0,kinetics,HP-MCP_kinetics_27C-2022-08-18 11-35-52.xls,DVS-Advantage-Plus,15.1615,Temp. [celsius]: 27.42 +- 6.41,"User: AAB, grade HP-55",20220420_kinetics1_27C_activation100C_60and90_X2
+0,isotherm,KollidonSR_isotherm_27C_TGApan-2022-10-06 11-58-55.xls,DVS-Advantage-Plus,11.273,Temp. [celsius]: 26.51 +- 4.16,User: AAB,20220915_27C_400cc_act100C_02dmdt
+0,kinetics,KollidonSR_kinetics_27C-2022-08-18 11-35-52.xls,DVS-Advantage-Plus,15.4292,Temp. [celsius]: 27.42 +- 6.41,"User: AAB, 79911-500G, lot BCBS6253V, sigma",20220420_kinetics1_27C_activation100C_60and90_X2
+0,isotherm,NK1091_Al-fumarate_EtOH_50-100um_27C_isotherm-2022-01-07 09-05-27.xls,DVS-Advantage-Plus,9.6047,Temp. [celsius]: 26.16 +- 2.21,User: DJO,20220107_27C_400cc_act80C_dmdt0_05
+0,kinetics,Al-fum_NK-1091_50-100um_kinetics_10mg-2022-04-19 16-39-52.xls,DVS-Advantage-Plus,12.0455,Temp. [celsius]: 26.42 +- 3.41,User: AAB,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,DJO-02-500_isotherm_27C-2021-05-18 18-59-58.xls,DVS-Advantage-Plus,9.1588,Temp. [celsius]: 26.43 +- 3.31,"User:SD Act: 100C,0RH",20210115_SD_method_0.05_27C
+0,kinetics,MIL-160_DJ2500_kinetics_27C_16mg_50-100um-2021-06-15 17-03-17_1.xls,DVS-Advantage-Plus,11.9043,Temp. [celsius]: 26.55 +- 3.76,AAB,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,MOF-303_SS-1131_isotherm_27C-2021-06-14 09-53-10.xls,DVS-Advantage-Plus,7.5912,Temp. [celsius]: 26.47 +- 3.49,DJO,20200707_ROS-37_pellets
+0,kinetics,MOF-303-SS1131_kinetics_27C_12mg_50-100um-2021-06-03 09-37-23.xls,DVS-Advantage-Plus,11.2897,Temp. [celsius]: 26.49 +- 3.40,nan,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,ROS037_-u50_isotherm-2021-05-07 18-07-06.xlsx,DVS-Advantage-Plus,20.2282,Temp. [celsius]: 25.11 +- 1.91,Andrey Bezrukov,HiRes_isotherm
+0,kinetics,ROS-037_50-100um_kinetics_27C_TGApan-2022-10-05 16-50-39.xls,DVS-Advantage-Plus,9.4818,Temp. [celsius]: 26.64 +- 4.67,User: AAB,20220420_kinetics1_27C_activation100C_60and90_X2_dmdt001
+0,isotherm,SD-1-183_isotherm_27C-2021-05-18 18-59-58.xls,DVS-Advantage-Plus,10.3507,Temp. [celsius]: 26.43 +- 3.31,"User:SD Act: 100C,0RH",20210115_SD_method_0.05_27C
+0,kinetics,ROS039-SD-1-183_kinetics_8mg_50-100um-2021-06-04 18-28-36.xls,DVS-Advantage-Plus,7.2026,Temp. [celsius]: 26.61 +- 3.35,AAB,20210524_kinetics1_27C_activation80C_3cycles_400flow
+0,isotherm,ROS-040_SD-01-082_isotherm_27C-2021-06-14 09-53-10.xls,DVS-Advantage-Plus,8.6793,Temp. [celsius]: 26.47 +- 3.49,DJO,20200707_ROS-37_pellets
+0,kinetics,ROS-040_SD-1-82_kinetics_9mg_27C_50-100um-2021-07-02 16-54-13.xls,DVS-Advantage-Plus,9.5521,Temp. [celsius]: 27.20 +- 5.70,AAB,20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,AAB-3-96_27C_isotherm_TGApan-2022-09-14 17-39-17_1.xls,DVS-Advantage-Plus,11.5765,Temp. [celsius]: 26.60 +- 4.63,User: AAB,20220101_27C_400cc_act100C
+0,kinetics,AAB-3-96_TGApan_kinetics_27C-2022-08-29 10-24-02.xls,DVS-Advantage-Plus,11.1562,Temp. [celsius]: 26.55 +- 4.06,User: AAB,20220420_kinetics1_27C_activation100C_60and90_X2
+0,isotherm,AAB-3-107_27C_isotherm_TGApan-2022-09-15 11-10-28.xls,DVS-Advantage-Plus,12.9177,Temp. [celsius]: 26.43 +- 4.11,User: AAB,20220915_27C_400cc_act100C_02dmdt
+0,kinetics,AAB-3-107_kinetics_27C-2022-08-18 21-17-17.xls,DVS-Advantage-Plus,9.7573,Temp. [celsius]: 27.72 +- 7.01,User: AAB,20220420_kinetics1_27C_activation100C_60and90_X2
+0,isotherm,20190323_Mg_CUK-1_3Isoth_27C - Sun 24 Mar 2019 00-20-00.xlsx,DVS-INTRINSIC,15.6016,Actual Sample Temp: 27.00 +- 0.00,20190323_Mg_CUK-1_3Isoth_27C,C:\DVS-Intrinsic\method\20190302_SilicaWheel_3Isoth27C_006dmdt.sao
+0,kinetics,20190323_Mg_CUK-1_Kinetics - Sat 23 Mar 2019 16-34-28.xls,DVS-INTRINSIC,15.6439,Actual Sample Temp: 27.00 +- 0.00,20190323_Mg_CUK-1_Kinetics,C:\DVS-Intrinsic\method\20190220_Loading_kinetic_test_01dmdt.sao
+0,isotherm,20190408_hcp-UIO-66 - Mon 08 Apr 2019 11-55-31.xls,DVS-INTRINSIC,14.5171,Actual Sample Temp: 27.10 +- 0.81,20190408_hcp-UIO-66,C:\DVS-Intrinsic\method\Quick_Isotherm_ROS-37_VGP.sao
+0,kinetics,20190409_hcp-UIO-66_Kinetics - Tue 09 Apr 2019 11-36-25.xls,DVS-INTRINSIC,14.5465,Actual Sample Temp: 27.00 +- 0.00,20190409_hcp-UIO-66_Kinertics,C:\DVS-Intrinsic\method\20190220_Loading_kinetic_test_01dmdt.sao
+0,isotherm,20190923_AAB380-AAB382_UiO-NH2-66 - Mon 23 Sep 2019 15-45-59.xls,DVS-INTRINSIC,19.4266,Actual Sample Temp: 27.08 +- 0.70,20190923_AAB380-AAB382_UiO-NH2-66,C:\DVS-Intrinsic\method\Quick_Isotherm_Candidates_VGP1.sao
+0,kinetics,20190923_AAB380-AAB382_UiO-NH2-66_Kinetics - Tue 24 Sep 2019 10-05-58.xls,DVS-INTRINSIC,19.4716,Actual Sample Temp: 27.00 +- 0.00,20190923_AAB380-AAB382_UiO-NH2-66_Kinetics,C:\DVS-Intrinsic\method\20190220_Loading_kinetic_test_01dmdt.sao
+0,isotherm,AAB-3-103_27C_isotherm_TGApan-2022-09-16 12-50-53.xlsx,DVS-Advantage-Plus,11.727,Temp. [celsius]: 26.01 +- 2.48,User: AAB,20220915_27C_400cc_act100C_02dmdt
+0,kinetics,AAB-3-103_kinetics_27C-2022-08-18 21-17-17.xls,DVS-Advantage-Plus,10.3459,Temp. [celsius]: 27.72 +- 7.01,User: AAB,20220420_kinetics1_27C_activation100C_60and90_X2
+0,isotherm,2_MS-200512_Isotherm-2020-07-30 12-52-23.xlsx,DVS-Advantage-Plus,9.0551,Temp. [celsius]: 27.37 +- 3.09,Sample Mohana. 12h at 90C for activation,20200730_MS-200511_MS-200512
+0,kinetics,MS-2005-11_kinetics_10mg-2022-04-19 16-39-52.xls,DVS-Advantage-Plus,9.2764,Temp. [celsius]: 26.42 +- 3.41,"User: AAB, 20200730_MS-2005-11-AfterDVS",20210603_kinetics1_27C_activation100C_3cycles_400flow
+0,isotherm,LX2134_2_isotherm_25C-2022-01-13 19-26-53.xls,DVS-Advantage-Plus,10.5841,Temp. [celsius]: 24.07 +- 0.27,"User: SD, Act: 150C, 0Rh",20211220_SD_method_0.01_25C
+0,kinetics,LX2134_kinetics_27C-2023-02-22 13-30-52.xls,DVS-Advantage-Plus,14.7824,Temp. [celsius]: 26.79 +- 5.21,"User: AAB, act 100C",20220420_kinetics1_27C_activation100C_60and90_X2_dmdt001
+0,isotherm,AAB-6-42_isotherm_27C-2023-02-18 20-04-00.xls,DVS-Advantage-Plus,16.2086,Temp. [celsius]: 26.34 +- 3.67,"User: AAB, act 100C, dm/dt 0.02",20220915_27C_400cc_act100C_02dmdt
+0,kinetics,AAB-6-42_kinetics_27C-2023-02-22 13-30-52.xls,DVS-Advantage-Plus,9.4687,Temp. [celsius]: 26.79 +- 5.21,"User: AAB, act 100C",20220420_kinetics1_27C_activation100C_60and90_X2_dmdt001
+0,isotherm,AAB-6-41_isotherm_27C-2023-02-23 16-37-53.xlsx,DVS-Advantage-Plus,14.5095,Temp. [celsius]: 26.09 +- 2.58,"User: AAB, act 100C, dm/dt=0.02",20230223_27C_400cc_act100C_02dmdt
+0,kinetics,AAB-6-41_kinetics_27C-2023-02-25 16-19-20.xls,DVS-Advantage-Plus,14.4954,Temp. [celsius]: 26.61 +- 4.65,"User: AAB, act 100C, ",20230225_kinetics1_27C_activation100C_30and90_X2_dmdt001
+0,isotherm,AAB-6-35_isotherm_27C-2023-02-19 21-31-48.xls,DVS-Advantage-Plus,17.1591,Temp. [celsius]: 26.19 +- 3.04,"User: AAB, act 100C, dm/dt 0.02",20230219_27C_400cc_act100C_02dmdt
+0,kinetics,AAB-6-35_ground_kinetics_27C_20mg-2023-02-27 18-31-39.xls,DVS-Advantage-Plus,21.956,Temp. [celsius]: 26.98 +- 5.66,"User: AAB, act 100C, ",20220420_kinetics1_27C_activation100C_60and90_X2_dmdt001
+0,isotherm,AAB-6-40_refluxEtOH_isotherm_27C-2023-02-23 16-37-53.xlsx,DVS-Advantage-Plus,15.0649,Temp. [celsius]: 26.09 +- 2.58,"User: AAB, act 100C, dm/dt=0.02",20230223_27C_400cc_act100C_02dmdt
+0,kinetics,AAB-6-40_refluxEtOH_kinetics_27C-2023-02-25 16-19-20.xls,DVS-Advantage-Plus,14.9336,Temp. [celsius]: 26.61 +- 4.65,"User: AAB, act 100C, ",20230225_kinetics1_27C_activation100C_30and90_X2_dmdt001

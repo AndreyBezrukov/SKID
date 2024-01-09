@@ -1,0 +1,4 @@
+path_kinetics,filename_kinetics,path_isotherm,filename_isotherm,color,name,cycleNr,analyze,window1,window2,flow,adstmax,destmax
+../../../../data/CO2_sorption/IGA/Sample_0233/Sequence/Sequence001/,Data.txt,../../../../data/CO2_sorption/3Flex/,20230115_AAB-5-51-53_exAcCN_CO2_298K.csv,green,ZIF-7,0,Y,20,10,200,5,20
+../../../../data/CO2_sorption/IGA/Sample_0234/Sequence/Sequence001/,Data.txt,../../../../data/CO2_sorption/3Flex/,AAB-6-71_25-50um_CO2_298K_20230918.csv,green,Zeolite_13X,1,Y,30,10,200,5,100
+../../../../data/CO2_sorption/IGA/Sample_0235/Sequence/Sequence001/,Data.txt,../../../../data/CO2_sorption/3Flex/,AAB-6-85_CO2_298K_20231027.csv,green,ROS-040,1,Y,30,10,200,5,25

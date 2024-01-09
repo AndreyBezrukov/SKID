@@ -1,0 +1,20 @@
+path_kinetics,filename_kinetics,path_isotherm,filename_isotherm,color,name,cycleNr,analyze,sample_group
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/Syloid/,Syloid_kinetics_50-100um_27C_5mg-2021-07-15 13-38-52.xls,,,green,Syloid,3,Y,1
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/Syloid/,Syloid_kinetics_50-100um_27C_12mg-2021-07-15 13-38-52.xls,,,green,Syloid,3,Y,1
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/CAU-10/,CAU-10_NK-1-1531_kinetics_27C_8mg_50-100um-2021-06-18 19-52-42.xls,,,green,CAU-10-H,3,Y,2
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/CAU-10/,CAU-10-H_NK-1-153_kinetics_20mg_27C_50-100-2021-06-24 13-11-08_1.xls,,,green,CAU-10-H,3,Y,2
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/Al-fumarate/,AL-fumarate_NK-1-1091_kinetics_27C_5mg_50-100um-2021-06-16 19-38-13.xls,,,green,Al-fumarate,3,Y,3
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/Al-fumarate/,AL-fumarate_NK-1-1091_kinetics_27C_8mg_50-100um-2021-06-16 19-38-13.xls,,,green,Al-fumarate,3,Y,3
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/MIL-160/,MIL-160_DJ2500_kinetics_27C_16mg_50-100um-2021-06-15 17-03-17_1.xls,,,green,MIL-160,3,Y,4
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/MIL-160/,MIL-160_DJO-02-500_kinetics_27C_14mg_50-100um-2021-06-17 14-20-40_1.xls,,,green,MIL-160,3,Y,4
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/MOF-303/,MOF-303-SS1131_kinetics_27C_12mg_50-100um-2021-06-03 09-37-23.xls,,,green,MOF-303,3,Y,5
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/MOF-303/,MOF-303-SS1131_kinetics_27C_20mg_50-100um-2021-06-03 09-37-23.xls,,,green,MOF-303,3,Y,5
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-037/,400flow-ROS-037_pureBatch_50-100um_5mg_2021-05-25 14-51-36.xls,,,green,ROS-037,1,Y,6
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-037/,ROS-037_pureBatch_50-100um_5mg_27C_15mg-2021-08-21 16-34-05.xls,,,green,ROS-037,1,Y,6
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-039/,ROS039-SD-1-183_kinetics_5mg_50-100um-2021-06-04 18-28-36.xls,,,green,ROS-039,3,Y,7
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-039/,ROS039-SD-1-183_kinetics_8mg_50-100um-2021-06-04 18-28-36.xls,,,green,ROS-039,3,Y,7
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-039/,ROS039-SD-1-183_kinetics_12mg_50-100um-2021-06-05 12-06-31.xls,,,green,ROS-039,3,Y,7
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-039/,ROS039-SD-1-183_kinetics_20mg_50-100um-2021-06-05 12-06-31.xls,,,green,ROS-039,3,Y,7
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-040/,ROS-040_SD-1-82_kinetics_9mg_27C_50-100um-2021-07-02 16-54-13.xls,,,green,ROS-040,3,Y,8
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-040/,ROS-040_SD-1-82_kinetics_12mg_27C_50-100um-2021-06-30 09-53-50.xls,,,green,ROS-040,3,Y,8
+../../../../data/water_sorption/DVS/kinetics/different_sample_mass/ROS-040/,ROS-040_SD-1-82_kinetics_16mg_27C_50-100um-2021-06-30 09-53-50.xls,,,green,ROS-040,3,Y,8
