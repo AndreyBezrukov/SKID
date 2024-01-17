@@ -42,6 +42,8 @@ class CannotReadFile(Exception):
 class WrongFileFormat(Exception):
     pass
 
+dmdt_warning_threshold = 0.05
+
 ##################################################
 ####### define  functions 
 ##################################################
@@ -64,8 +66,8 @@ class file_Sorption:
                 df = df.reset_index(drop=True)
                 df = df.astype('float')
                 # renaming columns to common notation
-                df = df[['Time (min)', 'dm (%) - ref', 'Target RH (%)', 'Actual RH (%)', 'Target Sample Temp', 'Actual Sample Temp']]
-                df.columns = ['time', 'uptake', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual']
+                df = df[['Time (min)', 'dm (%) - ref', 'Target RH (%)', 'Actual RH (%)', 'Target Sample Temp', 'Actual Sample Temp', 'dm/dt']]
+                df.columns = ['time', 'uptake', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
                 self.temperature = 'Actual Sample Temp: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
                 self.equilibration_interval = '---'
                 self.comments = comments
@@ -85,8 +87,8 @@ class file_Sorption:
                 df = df[[i for i in df.columns if (i == i) & (i != 'Chiller State')]]
                 df = df.astype('float')
                 # renaming columns to common notation
-                df = df[['Time [minutes]', 'dm (%) - ref', 'Mass [mg]', 'Target Partial Pressure (Solvent A) [%]', 'Measured Partial Pressure (Solvent A) [%]', 'Target Preheater Temp. [celsius]', 'Measured Preheater Temp. [celsius]']]
-                df.columns = ['time', 'uptake', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual']
+                df = df[['Time [minutes]', 'dm (%) - ref', 'Mass [mg]', 'Target Partial Pressure (Solvent A) [%]', 'Measured Partial Pressure (Solvent A) [%]', 'Target Preheater Temp. [celsius]', 'Measured Preheater Temp. [celsius]', 'dm/dt [%/minute]']]
+                df.columns = ['time', 'uptake', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
                 self.temperature = 'Temp. [celsius]: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
                 self.equilibration_interval = '---'
                 self.comments = comments
@@ -277,6 +279,7 @@ while True:
             sg.popup('Error, \'cycle number\' parameter exceeds max: {0}'.format(min(len(split_index_ads), len(split_index_des) )))
             continue
         
+        
         print(datetime.now())
         print('Isotherm calculation parameters:\ncycle number={0}\nfirst derivative moving average window={1}\nsecond derivative moving average window={2}\nnumber of iterations for k determination={3}'.format(cycle_number+1, 
                                                                                                                                                                                                                         window1, 
@@ -321,6 +324,12 @@ while True:
                  )
         ax2.set_ylabel('RH actual, %', fontsize=values['text_size'], c='b')
         ax2.tick_params(axis='y', labelsize=values['text_size'])
+        
+        ## test dmdt
+        if abs(Sorption_kinetics.data.iloc[split_index_des[cycle_number], :]['dmdt'])>dmdt_warning_threshold:
+            print(datetime.now())
+            print('Warning, dm/dt > {} at the end of adsorption interval, consider re-measuring kinetics data using lower dm/dt parameter value in order to reach equilibrium'.format(dmdt_warning_threshold))
+            sg.popup('Warning, dm/dt > {} at the end of adsorption interval, consider re-measuring kinetics data using lower dm/dt parameter value in order to reach equilibrium'.format(dmdt_warning_threshold), title='Warning')
         
         # first derivative adsorption
         first_derivative_dwdt_ads = pd.DataFrame({'dwdt':(w_ads['uptake'].diff()/w_ads['time'].diff()).rolling(window=window1, min_periods=1, center=True).mean(),
@@ -374,7 +383,13 @@ while True:
         ax3.set_ylabel('RH actual, %', fontsize=values['text_size'], c='b')
         ax3.tick_params(axis='y', labelsize=values['text_size'])
         
-        # first derivative adsorption
+        ## test dmdt
+        if abs(Sorption_kinetics.data.iloc[temp_index[1], :]['dmdt'])>dmdt_warning_threshold:
+            print(datetime.now())
+            print('Warning, dm/dt > {} at the end of desorption interval, consider re-measuring kinetics data using lower dm/dt parameter value in order to reach equilibrium'.format(dmdt_warning_threshold))
+            sg.popup('Warning, dm/dt > {} at the end of desorption interval, consider re-measuring kinetics data using lower dm/dt parameter value in order to reach equilibrium'.format(dmdt_warning_threshold), title='Warning')
+        
+        # first derivative desorption
         first_derivative_dwdt_des = pd.DataFrame({'dwdt':(w_des['uptake'].diff()/w_des['time'].diff()).rolling(window=window1, min_periods=1, center=True).mean(),
                                                   'uptake':w_des['uptake']
                                                   })
