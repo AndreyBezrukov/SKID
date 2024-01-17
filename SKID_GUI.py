@@ -87,7 +87,7 @@ class file_Sorption:
                 df = df[[i for i in df.columns if (i == i) & (i != 'Chiller State')]]
                 df = df.astype('float')
                 # renaming columns to common notation
-                df = df[['Time [minutes]', 'dm (%) - ref', 'Mass [mg]', 'Target Partial Pressure (Solvent A) [%]', 'Measured Partial Pressure (Solvent A) [%]', 'Target Preheater Temp. [celsius]', 'Measured Preheater Temp. [celsius]', 'dm/dt [%/minute]']]
+                df = df[['Time [minutes]', 'dm (%) - ref', 'Mass [mg]', 'Target Partial Pressure (Solvent A) [%]', 'Measured Partial Pressure (Solvent A) [%]', 'Target Incubator Temp. [celsius]', 'Measured Preheater Temp. [celsius]', 'dm/dt [%/minute]']]
                 df.columns = ['time', 'uptake', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
                 self.temperature = 'Temp. [celsius]: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
                 self.equilibration_interval = '---'
@@ -126,14 +126,15 @@ layout1 =   [
             [sg.Button('Open')],
             [sg.Text('STEP 2: determine isotherm', auto_size_text=False, justification='left',  font=("Helvetica", 12, "bold"))], 
             [sg.Text('Select calculation parameters:', auto_size_text=False, justification='left')], 
-            [sg.Text('    cycle number', size=(30, 1)), sg.In(default_text='1', size=(5, 1), key= 'cycle_number')],
-            [sg.Text('    first derivative moving average window', size=(30, 1)), sg.In(default_text='50', size=(5, 1), key= 'window1')],
-            [sg.Text('    second derivative moving average window', size=(30, 1)), sg.In(default_text='10', size=(5, 1), key= 'window2')],
-            [sg.Text('    number of iterations for k determination', size=(30, 1)), sg.In(default_text='10', size=(5, 1), key= 'k_iterations')],
+            [sg.Text('    cycle number', size=(32, 1)), sg.In(default_text='1', size=(5, 1), key= 'cycle_number')],
+            [sg.Text('    first derivative moving average window', size=(32, 1)), sg.In(default_text='50', size=(5, 1), key= 'window1')],
+            [sg.Text('    second derivative moving average window', size=(32, 1)), sg.In(default_text='10', size=(5, 1), key= 'window2')],
+            [sg.Text('    number of iterations for k determination', size=(32, 1)), sg.In(default_text='10', size=(5, 1), key= 'k_iterations')],
             [sg.Button('Calculate isotherm') ],
             [sg.Text('STEP 3: save result', auto_size_text=False, justification='left',  font=("Helvetica", 12, "bold"))],
             [sg.Text('Save calculated isotherm:', auto_size_text=False, justification='left')], 
-            [sg.Text('filename:', size=(7, 1)), sg.In(default_text='isotherm.csv', size=(50, 1), key= 'isotherm_file')],
+            [sg.Text('    File name:', size=(12, 1)), sg.In(default_text='Isotherm', size=(27, 1), key= 'isotherm_file')],
+            [sg.Text('    Save as type:', size=(12, 1)), sg.Combo(['CSV (Comma delimited) (*.csv)', 'Adsorption Isotherm File (*.AIF)'],default_value='CSV (Comma delimited) (*.csv)', size=(27, 1), key= 'isotherm_file_type')],
             [sg.Button('Save')],
             ]
 
@@ -211,7 +212,7 @@ while True:
             print(e)
             print(filename, 'failed')
            #continue
-
+           
         kinetics_uploaded = True
         
         ## break down kinetics to individual adsorption-desorption cycles
@@ -300,7 +301,8 @@ while True:
         try:
             w_ads = pd.DataFrame({'time':Sorption_kinetics.data.iloc[split_index_ads[cycle_number]:split_index_des[cycle_number], :]['time'] - Sorption_kinetics.data.iloc[split_index_ads[cycle_number]:split_index_des[cycle_number], :]['time'].min(), 
                                   'uptake':Sorption_kinetics.data.iloc[split_index_ads[cycle_number]:split_index_des[cycle_number], :]['uptake'],
-                                  'RH_actual':Sorption_kinetics.data.iloc[split_index_ads[cycle_number]:split_index_des[cycle_number], :]['RH_actual']
+                                  'RH_actual':Sorption_kinetics.data.iloc[split_index_ads[cycle_number]:split_index_des[cycle_number], :]['RH_actual'],
+                                  'temp_target':Sorption_kinetics.data.iloc[split_index_ads[cycle_number]:split_index_des[cycle_number], :]['temp_target']
                                   })
         except Exception as e:
             print(datetime.now())
@@ -359,6 +361,7 @@ while True:
             w_des = pd.DataFrame({'time':Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['time'] - Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['time'].min(), 
                                   'uptake':Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['uptake'], 
                                   'RH_actual':Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['RH_actual'], 
+                                  'temp_target':Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['temp_target'], 
                                   })
         except Exception as e:
             print(datetime.now())
@@ -484,9 +487,55 @@ while True:
         print('Error, calculate isotherm (step 2) before saving it')
         sg.popup('Error, calculate isotherm (step 2) before saving it')
     if (event == 'Save')&(isotherm_calculated==True):
-        df_export.to_csv(path+values['isotherm_file'], index=False )
-        print(datetime.now())
-        print('Isotherm saved to: ', path, values['isotherm_file'] )
+        ### export csv
+        if values['isotherm_file_type'] == 'CSV (Comma delimited) (*.csv)':
+            df_export.to_csv(path+values['isotherm_file']+'.csv', index=False )
+            print(datetime.now())
+            print('Isotherm saved to: {0}{1}{2}'.format(path, values['isotherm_file'], '.csv'))
+        ### export AIF
+        if values['isotherm_file_type'] == 'Adsorption Isotherm File (*.AIF)':
+            aif_temperature = (w_ads.temp_target.mean()+w_des.temp_target.mean())/2
+            f_p0 = interpolate.interp1d([0, 10, 20, 25, 27, 30, 40],[613, 1227, 2340, 3171, 3569, 4248, 7385  ], fill_value="extrapolate") ## interpolate saturation pressure
+            def interpolate_p0(t):
+                return f_p0(t)
+            aif_pressure = round(interpolate_p0(aif_temperature).item())
+            df_export_ads_aif = df_export_ads
+            df_export_ads_aif['uptake_cm3_g'] = df_export_ads_aif['adsorption_uptake']/100/18.015*22.4*1000
+            df_export_ads['p0'] = aif_pressure ## Pa 
+            df_export_ads['pressure'] = df_export_ads.adsorption_RH/100*aif_pressure ## Pa 
+            
+            with open(path+values['isotherm_file']+'.aif', 'w') as file:
+                file.write('data_\n')
+                file.write('_sample_material_id \"{}\"\n'.format(Sorption_kinetics.filename))
+                file.write('_exptl_instrument {}\n'.format(Sorption_kinetics.instrument))
+                file.write('_exptl_adsorptive Water\n')
+                file.write('_exptl_temperature {}\n'.format(str(round(aif_temperature+273.15))))
+                file.write('_adsnt_sample_mass {}\n'.format(Sorption_kinetics.sample_mass))
+                file.write('_units_temperature K\n')
+                file.write('_units_pressure Pa\n')
+                file.write('_units_mass mg\n')
+                file.write('_units_loading cm3(STP)/g\n')
+                file.write('_exptl_method \"gravimetric, calculated from non-equilibrium kinetics ("https://github.com/AndreyBezrukov/SKID")\"\n')
+                file.write('loop_\n_adsorp_pressure\n_adsorp_p0\n_adsorp_amount\n')
+            df_export_ads[['pressure', 'p0', 'uptake_cm3_g']].to_csv(path+values['isotherm_file']+'.aif',  
+                                                                     sep=' ', 
+                                                                     header=False, 
+                                                                     index=False, 
+                                                                     mode='a')
+            df_export_des_aif = df_export_des
+            df_export_des_aif['uptake_cm3_g'] = df_export_des_aif['desorption_uptake']/100/18.015*22.4*1000
+            df_export_des['p0'] = aif_pressure ## Pa 
+            df_export_des['pressure'] = df_export_des.desorption_RH/100*aif_pressure ## Pa 
+
+            with open(path+values['isotherm_file']+'.aif', 'a') as file:
+                file.write('loop_\n_desorp_pressure\n_desorp_p0\n_desorp_amount\n')
+            df_export_des[['pressure', 'p0', 'uptake_cm3_g']].to_csv(path+values['isotherm_file']+'.aif',  
+                                                                     sep=' ', 
+                                                                     header=False, 
+                                                                     index=False, 
+                                                                     mode='a')
+            print(datetime.now())
+            print('Isotherm saved to: {0}{1}{2}'.format(path, values['isotherm_file'], '.aif'))
     
 
 
