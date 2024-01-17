@@ -119,7 +119,7 @@ layout1 =   [
             [sg.Text('Figure settings:   font size', size=(19, 1)), sg.In(default_text='16', size=(5, 1), key= 'text_size'), sg.Text('    dpi', size=(5, 1)), sg.In(default_text='100', size=(5, 1), key= 'dpi'),],
             [sg.Text('STEP 1: read kinetics data', auto_size_text=False, justification='left',  font=("Helvetica", 12, "bold"))],
             [sg.Text('Read kinetics data for isotherm determination:', auto_size_text=False, justification='left')], 
-            [sg.InputText('Choose file', key='kinetics_file'), sg.FilesBrowse()],
+            [sg.InputText('Choose file', key='kinetics_file'), sg.FilesBrowse(),sg.Help('Help')],
             [sg.Button('Open')],
             [sg.Text('STEP 2: determine isotherm', auto_size_text=False, justification='left',  font=("Helvetica", 12, "bold"))], 
             [sg.Text('Select calculation parameters:', auto_size_text=False, justification='left')], 
@@ -170,6 +170,13 @@ while True:
                               value_test_int(values['text_size'],  'Figure \'font size\' parameter MUST be positive nonzero integer'),
                               value_test_int(values['dpi'],  'Figure \'dpi\' parameter MUST be positive nonzero integer'),
                               ])
+    
+    ########### help button pressed ############
+    if event == 'Help': 
+        print(datetime.now())
+        print('Help:\nThe method requires humidity swing kinetics data.\nSoftware supports kinetics data collected using Adventure DVS and Intrinsic DVS instruments (Surface Measurement Systems).\nFiles must be uploaded in MS Excel file format, only \'DVS Data\' tab is required.')
+        sg.popup('The method requires humidity swing kinetics data.\n\nSoftware supports kinetics data collected using Adventure DVS and Intrinsic DVS instruments (Surface Measurement Systems).\n\nFiles must be uploaded in MS Excel file format, only \'DVS Data\' tab is required.', title='Help')
+        continue  
     
     ################# Import kinetics data ################
     if event == 'Open': 
