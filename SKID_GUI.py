@@ -34,6 +34,7 @@ with warnings.catch_warnings():
 '''
 plt.rcParams['toolbar'] = 'toolmanager'
 from matplotlib.backend_tools import ToolBase, ToolToggleBase
+import matplotlib.patches as mpatches
 
 ### declare custom exceptions
 class CannotReadFile(Exception):
@@ -211,6 +212,14 @@ while True:
 
         kinetics_uploaded = True
         
+        ## break down kinetics to individual adsorption-desorption cycles
+        Sorption_kinetics.data['cycle_split'] = Sorption_kinetics.data['RH_target'].diff().fillna(0)
+        Sorption_kinetics.data['cycle_split_temp'] = Sorption_kinetics.data['temp_target'].diff().fillna(0)
+        split_index_ads = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split']>0)].to_list()
+        split_index_des = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split']<0)].to_list()
+        split_index_temp = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split_temp']!=0)].to_list()
+
+        ## plot kinetics
         fig, ax = plt.subplots(figsize=(10, 9), dpi=int(values['dpi']))
         ax.plot(Sorption_kinetics.data['time'], Sorption_kinetics.data['uptake'], c='g')
         ax2 = ax.twinx()
@@ -225,13 +234,28 @@ while True:
         ax2.tick_params(axis='y', labelsize=values['text_size'])
         fig.suptitle(''.join([filename, ', ', str(Sorption_kinetics.sample_mass), ' mg sample' ]),
                              fontsize=values['text_size'])
+        for cycle_number in range(len(split_index_ads)):
+            try:
+                left, right, bottom, top = (Sorption_kinetics.data.iloc[split_index_ads[cycle_number], :]['time'],
+                                            Sorption_kinetics.data.iloc[split_index_ads[cycle_number+1], :]['time'],
+                                            Sorption_kinetics.data.uptake.min(),
+                                            Sorption_kinetics.data.uptake.max(),
+                                            )
+            except: 
+                left, right, bottom, top = (Sorption_kinetics.data.iloc[split_index_ads[cycle_number], :]['time'],
+                                            Sorption_kinetics.data.iloc[Sorption_kinetics.data.index.max(), :]['time'],
+                                            Sorption_kinetics.data.uptake.min(),
+                                            Sorption_kinetics.data.uptake.max(),
+                                            )
+            ax.text((left+right)/2, 
+                     (top+bottom)/2,
+                     'Cycle number {}'.format(str(cycle_number+1)),
+                     size=values['text_size'], rotation=90, ha="center", va="center", weight='bold')
+            rect=mpatches.Rectangle((left,bottom),right-left,top-bottom,
+                            alpha=0.1,
+                            facecolor=['red', 'green', 'blue'][cycle_number%3])
+            ax.add_patch(rect)
         plt.show(block=False)
-
-        Sorption_kinetics.data['cycle_split'] = Sorption_kinetics.data['RH_target'].diff().fillna(0)
-        Sorption_kinetics.data['cycle_split_temp'] = Sorption_kinetics.data['temp_target'].diff().fillna(0)
-        split_index_ads = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split']>0)].to_list()
-        split_index_des = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split']<0)].to_list()
-        split_index_temp = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split_temp']!=0)].to_list()
     
     ################# Calculate isotherm ################
     if (event == 'Calculate isotherm')&(kinetics_uploaded!=True): 
