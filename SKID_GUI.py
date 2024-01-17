@@ -419,8 +419,6 @@ while True:
                     k_adventure_TGA_max = k_adventure_TGA
                 else: 
                     k_adventure_TGA_min = k_adventure_TGA
-        
-            print('Fitted parameter k: ',k_adventure_TGA)
             
             first_derivative_dwdt_ads['dwdt_scaled'] = RH_max - first_derivative_dwdt_ads['dwdt']/k_adventure_TGA*Sorption_kinetics.sample_mass
             first_derivative_dwdt_des['dwdt_scaled'] = -first_derivative_dwdt_des['dwdt']/k_adventure_TGA*Sorption_kinetics.sample_mass
@@ -439,7 +437,7 @@ while True:
             ax['H'].set_ylabel('uptake, wt.%', fontsize=values['text_size'])
             ax['H'].tick_params(axis='x', labelsize=values['text_size'])
             ax['H'].tick_params(axis='y', labelsize=values['text_size'])
-            ax['H'].set_title('Isotherm determined from kinetics', fontsize=values['text_size'])
+            ax['H'].set_title('Isotherm determined from non-equilibrium kinetics', fontsize=values['text_size'])
             ax['H'].legend()  
             
             df_export_ads = pd.DataFrame(data={'adsorption_RH': first_derivative_dwdt_ads[first_derivative_dwdt_dw_ads['dwdt_dw']<0][clustering_ads.labels_==np.bincount(clustering_ads.labels_).argmax()]['dwdt_scaled'],
@@ -452,6 +450,7 @@ while True:
             df_export = pd.concat([df_export_ads, df_export_des], axis=1,)
             print(datetime.now())
             print('Isotherm calculation successfull')
+            print('Fitted parameter k: ',round(k_adventure_TGA, 5))
             isotherm_calculated = True
   
         except Exception as e: 
