@@ -280,7 +280,7 @@ while True:
         filename = values['kinetics_file'].split('/')[-1]
         cycle_number = int(values['cycle_number'])-1
         
-        if (cycle_number>(len(split_index_ads)-1))|(cycle_number>(len(split_index_des)-1)):
+        if ((cycle_number+1)>len(split_index_ads))|((cycle_number+1)>len(split_index_des)):
             print(datetime.now())
             print('Error, \'cycle number\' parameter exceeds max: {0}'.format(min(len(split_index_ads), len(split_index_des) )))
             sg.popup('Error, \'cycle number\' parameter exceeds max: {0}'.format(min(len(split_index_ads), len(split_index_des) )))
