@@ -223,13 +223,14 @@ while True:
         split_index_temp = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split_temp']!=0)].to_list()
 
         ## plot kinetics
-        fig, ax = plt.subplots(figsize=(10, 9), dpi=int(values['dpi']))
+        fig, ax = plt.subplots(figsize=(12, 9), dpi=int(values['dpi']))
+        fig.subplots_adjust(right=0.75)
         ax.plot(Sorption_kinetics.data['time'], Sorption_kinetics.data['uptake'], c='g')
         ax2 = ax.twinx()
         ax2.plot(Sorption_kinetics.data['time'], Sorption_kinetics.data['RH_actual'], c='b')
         #ax2.plot(Sorption_kinetics.data['time'], Sorption_kinetics.data['temp_actual'], c='r')
-        ax.set_xlabel('time, min', fontsize=values['text_size'])
-        ax.set_ylabel('uptake, wt.%', fontsize=values['text_size'], c='g')
+        ax.set_xlabel('Time, min', fontsize=values['text_size'])
+        ax.set_ylabel('Uptake, wt.%', fontsize=values['text_size'], c='g')
         ax.tick_params(axis='x', labelsize=values['text_size'])
         ax.tick_params(axis='y', labelsize=values['text_size'])
         ax2.set_ylabel('RH actual, %', fontsize=values['text_size'], c='b')
@@ -258,6 +259,11 @@ while True:
                             alpha=0.1,
                             facecolor=['red', 'green', 'blue'][cycle_number%3])
             ax.add_patch(rect)
+        ax3 = ax.twinx()
+        ax3.spines.right.set_position(("axes", 1.12))
+        ax3.plot(Sorption_kinetics.data['time'], Sorption_kinetics.data['temp_actual'], c='r')
+        ax3.set_ylabel('Temperature, °C', fontsize=values['text_size'], c='r')
+        ax3.tick_params(axis='y', labelsize=values['text_size'])
         plt.show(block=False)
     
     ################# Calculate isotherm ################
