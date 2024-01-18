@@ -472,6 +472,8 @@ while True:
                                             }).reset_index(drop=True) 
             
             df_export = pd.concat([df_export_ads, df_export_des], axis=1,)
+            
+            df_export_temperature = (w_ads.temp_target.mean()+w_des.temp_target.mean())/2
             print(datetime.now())
             print('Isotherm calculation successfull')
             print('Fitted parameter k: ',round(k_adventure_TGA, 5))
@@ -495,16 +497,26 @@ while True:
     if (event == 'Save')&(isotherm_calculated==True):
         ### export csv
         if values['isotherm_file_type'] == 'CSV (Comma delimited) (*.csv)':
-            df_export.to_csv(path+values['isotherm_file']+'.csv', index=False )
+            with open(path+values['isotherm_file']+'.csv', 'w') as file:
+                file.write('Sample_material_id \"{}\"\n'.format(Sorption_kinetics.filename))
+                file.write('Instrument {}\n'.format(Sorption_kinetics.instrument))
+                file.write('Adsorptive Water\n')
+                file.write('Temperature {} K\n'.format(str(round(df_export_temperature+273.15))))
+                file.write('Sample_mass {} mg\n'.format(Sorption_kinetics.sample_mass))
+                file.write('RH units [%]\n')
+                file.write('Uptake units [wt.%]\n')
+                file.write('\"Experimental method: calculated from non-equilibrium kinetics ("https://github.com/AndreyBezrukov/SKID")\"\n')
+            df_export.to_csv(path+values['isotherm_file']+'.csv', 
+                             index=False, 
+                             mode='a' )
             print(datetime.now())
             print('Isotherm saved to: {0}{1}{2}'.format(path, values['isotherm_file'], '.csv'))
         ### export AIF
         if values['isotherm_file_type'] == 'Adsorption Isotherm File (*.AIF)':
-            aif_temperature = (w_ads.temp_target.mean()+w_des.temp_target.mean())/2
             f_p0 = interpolate.interp1d([0, 10, 20, 25, 27, 30, 40],[613, 1227, 2340, 3171, 3569, 4248, 7385  ], fill_value="extrapolate") ## interpolate saturation pressure
             def interpolate_p0(t):
                 return f_p0(t)
-            aif_pressure = round(interpolate_p0(aif_temperature).item())
+            aif_pressure = round(interpolate_p0(df_export_temperature).item())
             df_export_ads_aif = df_export_ads
             df_export_ads_aif['uptake_cm3_g'] = df_export_ads_aif['adsorption_uptake']/100/18.015*22.4*1000
             df_export_ads['p0'] = aif_pressure ## Pa 
@@ -515,7 +527,7 @@ while True:
                 file.write('_sample_material_id \"{}\"\n'.format(Sorption_kinetics.filename))
                 file.write('_exptl_instrument {}\n'.format(Sorption_kinetics.instrument))
                 file.write('_exptl_adsorptive Water\n')
-                file.write('_exptl_temperature {}\n'.format(str(round(aif_temperature+273.15))))
+                file.write('_exptl_temperature {}\n'.format(str(round(df_export_temperature+273.15))))
                 file.write('_adsnt_sample_mass {}\n'.format(Sorption_kinetics.sample_mass))
                 file.write('_units_temperature K\n')
                 file.write('_units_pressure Pa\n')
