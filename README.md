@@ -21,34 +21,34 @@ Download and run [SKID_GUI.py](/SKID_GUI.py) code.
 
 ## How to use SKID GUI
 
-We demonstrate rapid water vapor isotherm determination protocol using MIL-100(Fe) as an example. Files required for this tutorial are available in [Examples](/Examples) forlder of this GitHub repository.  
+We demonstrate rapid water vapor isotherm determination protocol using sorption on MIL-100(Fe) material as an example. Files required for this tutorial are available in [Examples](/Examples) forlder of this GitHub repository.  
 
 ### Sorption kinetics measurement
 
-Collect gravimetric humidity swing data: full adsorption and desorption cycle is required. SKID GUI recognizes data in ```.xls``` or ```.xlsx``` format from DVS Adventure and DVS Intrinsic instruments, as well as generic sorption kinetics data in ```.csv``` format.
+Collect gravimetric humidity swing sorption data: kinetics in full adsorption and desorption cycle is required. SKID GUI recognizes kinetics data in ```.xls``` or ```.xlsx``` format from DVS Adventure and DVS Intrinsic instruments, as well as generic sorption kinetics data in ```.csv``` format.
 
-Experimental kinetics data for MIL-100(Fe) example was collected using DVS Adventure instrument. 0-60 % relative humidity swing data with *dm/dt* = 0.05 %/min as equilibration criterion was collected. 
+Experimental kinetics data for MIL-100(Fe) example was collected using DVS Adventure instrument. 0-60 % relative humidity swing data with *dm/dt* = 0.05 %/min as equilibration criterion was collected using [MIL-100(Fe)_kinetics.mtd](/Examples/MIL-100(Fe)_kinetics.mtd) DVS Adventure method file. 
 
 ### Sorption kinetics data analysis  
 
-Start ```SKID_GUI.exe``` software, the Graphical User Interface (GUI) as shown on figure below will load.
+Run ```SKID_GUI``` software, the Graphical User Interface (GUI) as shown on figure below will load.
 >initial loading of the interface might be slow, please be patient
 # <img src="docs/images/img1.PNG" style="padding:10px;" width="300"/>
 
-#### Step 1 
-Select [MIL-100(Fe)-2024-02-04 17-15-19.xls](Examples/MIL-100(Fe)-2024-02-04 17-15-19.xls) file by pressing ```Browse``` button and press ```Open``` button. The software will read the file and plot the kinetics data in a new window, see figure below. Software will automatically identify potential humidity swing adsorption/desorption cycle suitable for SKID calculations (cycle number 1).
+#### Step 1: read kinetics data  
+Select [MIL-100(Fe)-2024-02-04 17-15-19.xls](Examples/MIL-100(Fe)-2024-02-04 17-15-19.xls) file by pressing ```Browse``` button and press ```Open``` button. The software will read the file and plot the kinetics data in a new window, see figure below. Software will automatically identify potential humidity swing adsorption/desorption cycle suitable for SKID calculations (**cycle number 1**).
 # <img src="docs/images/img2.PNG" style="padding:10px;" width="600"/>
 
-#### Step 2 
-Select corresponding cycle number plotted in a previous step (cycle number 1). Determine sorption isotherm by pressing ```Calculate isotherm``` button. Calculation results will open in new window, see figure below.
+#### Step 2: determine isotherm 
+Select corresponding cycle number plotted in a previous step (**cycle number 1**). Determine sorption isotherm by pressing ```Calculate isotherm``` button. Calculation results will open in a new window, see figure below.
 # <img src="docs/images/img3.PNG" style="padding:10px;" width="600"/>
 
-#### Step 3 
+#### Step 3: save result 
 Save isotherm calculation results in a file by selecting ```file name``` and ```file type``` (```CSV``` or ```AIF``` [[Adsorption Isotherm File](https://doi.org/10.1021/acs.langmuir.1c00122)]) and pressing ```Save``` button. 
 
 ## Citing this work
 
-If you use SKID method, please consider citing the related publication: 
+If you find SKID method useful, please consider citing the related publication: 
 
 >Bezrukov, A. A.;  O’Hearn, D. J.;  Gascón-Pérez, V.;  Matos, C. R. M. O.;  Koupepidou, K.;  Darwish, S.;  Sanda, S.;  Kumar, N.;  Li, X.;  Shivanna, M.; Zaworotko, M. J.;
 >Rapid Determination of Experimental Sorption Isotherms from Non-Equilibrium Sorption Kinetic Data.
