@@ -1,5 +1,5 @@
 # Sorption kinetics isotherm determination (SKID) method
-
+# <img src="docs/images/img0.png" style="padding:10px;"  width="1000"/>
 Experimental sorption isotherms can be rapidly determined from non-equilibrium gravimetric sorption kinetics data using SKID method. This protocol is *ca.* 10x faster than the conventional equilibrium-based isotherm determination methods and has potential in high-throughput testing of sorbent materials. 
 
 The SKID method was published in *Chem* peer-reviewed journal ([DOI:10.1016/j.chempr.2024.01.011](https://doi.org/10.1016/j.chempr.2024.01.011)) and has been demonstrated to work for water and C8 aromatics vapors, as well as for CO<sub>2</sub> gas. Code used for data analysis and visualization in the manuscript can be found in the [Manuscript](/Manuscript) folder of this GitHub repository. Corresponding data is availabe at Zenodo repository: https://doi.org/10.5281/zenodo.7600754.  
