@@ -2,7 +2,8 @@
 # <img src="docs/images/img0.png" style="padding:10px;"  width="1000"/>
 The SKID method enables the rapid determination of experimental sorption isotherms from non-equilibrium gravimetric sorption kinetics data. This approach is *ca.* 10 times faster than conventional equilibrium-based isotherm determination methods and has potential for high-throughput testing of sorbent materials. 
 
-The SKID method has been published in the *Chem* peer-reviewed journal ([DOI:10.1016/j.chempr.2024.01.011](https://doi.org/10.1016/j.chempr.2024.01.011)). The method has been demonstrated to work for water and C8 aromatics vapors, as well as for CO<sub>2</sub> gas. The code used for data analysis and visualizations in the manuscript is available in the [Manuscript](/Manuscript) folder of this GitHub repository. Additionally, corresponding data is availabe at Zenodo repository: https://doi.org/10.5281/zenodo.7600754.  
+The SKID method has been published in the *Chem* peer-reviewed journal ([DOI:10.1016/j.chempr.2024.01.011](https://doi.org/10.1016/j.chempr.2024.01.011)). The method has been demonstrated to work for water and C8 aromatics vapours, as well as for CO<sub>2</sub> gas. 
+The code used for data analysis and visualizations in the manuscript is available in the [Manuscript](/Manuscript) folder of this GitHub repository. Additionally, corresponding data is availalbe at Zenodo repository: https://doi.org/10.5281/zenodo.7600754.  
 
 ## Graphical User Interface for SKID Data Analysis Software
 To facilitate the adoption of the SKID method, we have developed an easy-to-use Graphical User Interface (GUI) for SKID data analysis software.
@@ -21,7 +22,7 @@ Download and run [SKID_GUI.py](/SKID_GUI.py) code.
 
 ## How to Use SKID GUI
 
-We provide a step-by-step tutorial on the rapid determination of water vapor isotherms using sorption on MIL-100(Fe) material as an example. Files required for this tutorial are available in [Examples](/Examples) forlder of this GitHub repository.  
+We provide a step-by-step tutorial on the rapid determination of water vapor isotherms using sorption on MIL-100(Fe) material as an example. Files required for this tutorial are available in [Examples](/Examples) folder of this GitHub repository.  
 
 ### Sorption kinetics measurement
 
