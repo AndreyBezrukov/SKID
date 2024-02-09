@@ -12,7 +12,7 @@ There are two options for running SKID GUI data analysis software: using the exe
 
 ### Running SKID GUI executable
 
-Download and run [SKID_GUI.exe](/SKID_GUI.exe) executable.
+Download and run ```SKID_GUI.exe``` executable from latest [releases](https://github.com/AndreyBezrukov/SKID/releases) .
 
 The executable is currently supported for *Windows 10*.
 
