@@ -26,7 +26,7 @@ We provide a step-by-step tutorial on the rapid determination of water vapor iso
 
 ### Sorption kinetics measurement
 
-Collect gravimetric humidity swing sorption data: kinetics in full adsorption and desorption cycle is required. SKID GUI recognizes kinetics data in ```.xls``` or ```.xlsx``` format from DVS Adventure and DVS Intrinsic instruments, as well as generic sorption kinetics data in ```.csv``` format.
+Collect gravimetric humidity swing sorption data: kinetics in full adsorption and desorption cycle is required. SKID GUI recognizes kinetics data in ```.xls``` or ```.xlsx``` format from DVS Adventure and DVS Intrinsic instruments (Surface Measurement Systems).
 
 For the MIL-100(Fe) example, we collected experimental kinetics data using the DVS Adventure instrument. The [MIL-100(Fe)_kinetics.mtd](/Examples/MIL-100(Fe)_kinetics.mtd) DVS Adventure method file was used for the experiment: 0-60 % relative humidity swing with *dm/dt* = 0.05 %/min as equilibration criterion.
 
