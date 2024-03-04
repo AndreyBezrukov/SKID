@@ -26,7 +26,12 @@ We provide a step-by-step tutorial on the rapid determination of water vapor iso
 
 ### Sorption kinetics measurement
 
-Collect gravimetric humidity swing sorption data: kinetics in full adsorption and desorption cycle is required. SKID GUI recognizes kinetics data in ```.xls``` or ```.xlsx``` format from DVS Adventure and DVS Intrinsic instruments (Surface Measurement Systems).
+Collect gravimetric humidity swing sorption data: kinetics in full adsorption and desorption cycle is required. 
+
+SKID GUI supports two options for kinetics data files:
+
+- **Option 1**: kinetics data in MS Excel format (```.xls``` or ```.xlsx```) from DVS Adventure and DVS Intrinsic instruments (Surface Measurement Systems). Only ```DVS Data``` tab is required for SKID method.
+- **Option 2**: kinetics data in generic ```.csv``` file format. The file should contain following heading: ```Time[min],Mass[mg],Temperature[degreeC],RH_target[%],RH_measured[%]```
 
 For the MIL-100(Fe) example, we collected experimental kinetics data using the DVS Adventure instrument. The [MIL-100(Fe)_kinetics.mtd](/Examples/MIL-100(Fe)_kinetics.mtd) DVS Adventure method file was used for the experiment: 0-60 % relative humidity swing with *dm/dt* = 0.05 %/min as equilibration criterion.
 
@@ -37,7 +42,7 @@ Run the ```SKID_GUI``` software. The Graphical User Interface (GUI) will load, a
 # <img src="docs/images/img1.PNG" style="padding:10px;" width="300"/>
 
 #### Step 1: read kinetics data  
-Select the [MIL-100(Fe)-2024-02-04 17-15-19.xls](Examples/MIL-100(Fe)-2024-02-04%2017-15-19.xls) file by pressing the ```Browse``` button and then press the ```Open``` button. The software will read the file and plot the kinetics data in a new window, as illustrated below. The software will automatically identify the potential humidity swing adsorption/desorption cycle suitable for SKID calculations (**cycle number 1**).
+Select the [MIL-100(Fe)-2024-02-04 17-15-19.xls](Examples/MIL-100(Fe)-2024-02-04%2017-15-19.xls) or [MIL-100(Fe)-2024-02-04 17-15-19.csv](Examples/MIL-100(Fe)-2024-02-04%2017-15-19.csv) file by pressing the ```Browse``` button and then press the ```Open``` button. The software will read the file and plot the kinetics data in a new window, as illustrated below. The software will automatically identify the potential humidity swing adsorption/desorption cycle suitable for SKID calculations (**cycle number 1**).
 # <img src="docs/images/img2.PNG" style="padding:10px;" width="600"/>
 
 #### Step 2: determine isotherm 
