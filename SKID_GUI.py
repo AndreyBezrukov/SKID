@@ -5,7 +5,7 @@ Created on Tue Oct 24 18:35:01 2023
 @author: Andrey.Bezrukov
 """
 developer_contact = 'Andrey.Bezrukov@ul.ie'
-software_version = '1.0'
+software_version = '1.1.0'
 
 print('################################################################################################')
 print('      Sorption kinetics isotherm determination, SKID, V{0}'.format(software_version))
@@ -51,62 +51,95 @@ dmdt_warning_threshold = 0.05
 class file_Sorption:
     
     def read_file(self, path, filename):
-        #print(path +'/'+ filename)        
-        try:
-            df = pd.read_excel(path + filename, sheet_name='DVS Data')
-            if df.columns[0] == 'DVS-INTRINSIC DATA FILE':
+        #print(path +'/'+ filename) 
+        ### read MS Excel file format
+        if (filename[-5:]=='.xlsx')|(filename[-4:]=='.xls'):
+            try:
+                df = pd.read_excel(path + filename, sheet_name='DVS Data')
+                if df.columns[0] == 'DVS-INTRINSIC DATA FILE':
+                    self.filename = filename
+                    self.instrument = df.columns[0].split()[0]
+                    self.sample_mass = df.iloc[4, 7]
+                    self.fluid = 'water vapor'
+                    comments  = str(df.iloc[3, 1])
+                    method = str(df.iloc[1, 1])
+                    df.columns = df.iloc[22, :]
+                    df = df.iloc[23:, :]
+                    df = df.reset_index(drop=True)
+                    df = df.astype('float')
+                    # renaming columns to common notation
+                    df = df[['Time (min)', 'dm (%) - ref', 'Target RH (%)', 'Actual RH (%)', 'Target Sample Temp', 'Actual Sample Temp', 'dm/dt']]
+                    df.columns = ['time', 'uptake', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
+                    self.temperature = 'Actual Sample Temp: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
+                    self.equilibration_interval = '---'
+                    self.comments = comments
+                    self.method = method
+                    self.data = df
+                    #print(self.data.head())
+                elif df.columns[0] == 'DVS-Advantage-Plus-Data-File':
+                    self.filename = filename
+                    self.instrument = df.columns[0][:-10]
+                    self.sample_mass = df.iloc[27, 1]
+                    self.fluid = 'water vapor'
+                    comments  = str(df.iloc[8, 1])
+                    method = str(df.iloc[3, 1])
+                    df.columns = df.iloc[39, :]
+                    df = df.iloc[40:, :30]
+                    df = df.reset_index(drop=True)
+                    df = df[[i for i in df.columns if (i == i) & (i != 'Chiller State')]]
+                    df = df.astype('float')
+                    # renaming columns to common notation
+                    df = df[['Time [minutes]', 'dm (%) - ref', 'Mass [mg]', 'Target Partial Pressure (Solvent A) [%]', 'Measured Partial Pressure (Solvent A) [%]', 'Target Incubator Temp. [celsius]', 'Measured Preheater Temp. [celsius]', 'dm/dt [%/minute]']]
+                    df.columns = ['time', 'uptake', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
+                    self.temperature = 'Temp. [celsius]: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
+                    self.equilibration_interval = '---'
+                    self.comments = comments
+                    self.method = method
+                    self.data = df
+                    #print(self.data.head())
+            except Exception as e:
+                print(datetime.now())
+                print(e)
+            #print(self.__dict__.keys())
+            # test if import was correct
+            if (list(self.__dict__.keys()) == ['filename', 'instrument', 'sample_mass', 'fluid', 'temperature', 'equilibration_interval', 'comments', 'method', 'data'])  :
+                print(datetime.now())
+                print('File {0} read succesfull'.format(filename))
+                self.import_success = True
+            else:
+                self.import_success = False
+        ### read generic csv file format
+        elif (filename[-4:]=='.csv'):
+            try:
+                df = pd.read_csv(path + filename)
                 self.filename = filename
-                self.instrument = df.columns[0].split()[0]
-                self.sample_mass = df.iloc[4, 7]
                 self.fluid = 'water vapor'
-                comments  = str(df.iloc[3, 1])
-                method = str(df.iloc[1, 1])
-                df.columns = df.iloc[22, :]
-                df = df.iloc[23:, :]
-                df = df.reset_index(drop=True)
                 df = df.astype('float')
                 # renaming columns to common notation
-                df = df[['Time (min)', 'dm (%) - ref', 'Target RH (%)', 'Actual RH (%)', 'Target Sample Temp', 'Actual Sample Temp', 'dm/dt']]
-                df.columns = ['time', 'uptake', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
-                self.temperature = 'Actual Sample Temp: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
-                self.equilibration_interval = '---'
-                self.comments = comments
-                self.method = method
-                self.data = df
-                #print(self.data.head())
-            elif df.columns[0] == 'DVS-Advantage-Plus-Data-File':
-                self.filename = filename
-                self.instrument = df.columns[0][:-10]
-                self.sample_mass = df.iloc[27, 1]
-                self.fluid = 'water vapor'
-                comments  = str(df.iloc[8, 1])
-                method = str(df.iloc[3, 1])
-                df.columns = df.iloc[39, :]
-                df = df.iloc[40:, :30]
-                df = df.reset_index(drop=True)
-                df = df[[i for i in df.columns if (i == i) & (i != 'Chiller State')]]
-                df = df.astype('float')
-                # renaming columns to common notation
-                df = df[['Time [minutes]', 'dm (%) - ref', 'Mass [mg]', 'Target Partial Pressure (Solvent A) [%]', 'Measured Partial Pressure (Solvent A) [%]', 'Target Incubator Temp. [celsius]', 'Measured Preheater Temp. [celsius]', 'dm/dt [%/minute]']]
-                df.columns = ['time', 'uptake', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']
+                df = df[['Time[min]','Mass[mg]','RH_target[%]','RH_measured[%]','Temperature[degreeC]','Temperature[degreeC]',]]
+                df.columns = ['time', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual']
                 self.temperature = 'Temp. [celsius]: {0:.2f} +- {1:.2f}'.format(df[df.temp_target==df.temp_target.min()].temp_actual.mean(), df[df.temp_target==df.temp_target.min()].temp_actual.std())
-                self.equilibration_interval = '---'
-                self.comments = comments
-                self.method = method
-                self.data = df
+                # zero mass at the start of first adsorption cycle
+                df['cycle_split'] = df['RH_target'].diff().fillna(0)
+                m0_index = df.index[(df['cycle_split']>0)].to_list()[0]
+                self.sample_mass = df.iloc[m0_index, :]['mass']   
+                # calc uptake as wt. %
+                df['uptake'] = df['mass']/df.iloc[m0_index, :]['mass']*100-100
+                # calc dm/dt [%/minute]
+                df['dmdt'] = (df['mass'].pct_change()/df['time'].diff()).rolling(window=10, min_periods=1, center=True).mean()*100
+                self.data = df[['time','uptake', 'mass', 'RH_target', 'RH_actual', 'temp_target', 'temp_actual', 'dmdt']]
                 #print(self.data.head())
-        except Exception as e:
-            print(datetime.now())
-            print(e)
-        #print(self.__dict__.keys())
-        # test if import was correct
-        if (list(self.__dict__.keys()) == ['filename', 'instrument', 'sample_mass', 'fluid', 'temperature', 'equilibration_interval', 'comments', 'method', 'data'])  :
-            print(datetime.now())
-            print('File {0} read succesfull'.format(filename))
-            self.import_success = True
-        else:
-            self.import_success = False
-            
+            except Exception as e:
+                print(datetime.now())
+                print(e)
+            #print(self.__dict__.keys())
+            # test if import was correct
+            if (list(self.__dict__.keys()) == ['filename', 'fluid', 'temperature','sample_mass',  'data'])  :
+                print(datetime.now())
+                print('File {0} read succesfull'.format(filename))
+                self.import_success = True
+            else:
+                self.import_success = False            
         
 
 ##################################################
@@ -178,8 +211,8 @@ while True:
     ########### help button pressed ############
     if event == 'Help': 
         print(datetime.now())
-        print('Help:\nThe method requires humidity swing kinetics data.\nSoftware supports kinetics data collected using Adventure DVS and Intrinsic DVS instruments (Surface Measurement Systems).\nFiles must be uploaded in MS Excel file format, only \'DVS Data\' tab is required.')
-        sg.popup('The method requires humidity swing kinetics data.\n\nSoftware supports kinetics data collected using Adventure DVS and Intrinsic DVS instruments (Surface Measurement Systems).\n\nFiles must be uploaded in MS Excel file format, only \'DVS Data\' tab is required.', title='Help')
+        print('Help:\nThe method requires humidity swing kinetics data.\nAt the moment there are 2 supported options for kinetics data:\nOption 1: kinetics data collected using Adventure DVS and Intrinsic DVS instruments (Surface Measurement Systems).\nFiles must be uploaded in MS Excel file format, only \'DVS Data\' tab is required.\nOption 2: kinetics data in generic \'.csv\' file format.\nFiles must contain following columns:\nTime[min],Mass[mg],Temperature[degreeC],RH_target[%],RH_measured[%]')
+        sg.popup('The method requires humidity swing kinetics data.\nAt the moment there are 2 supported options for kinetics data:\nOption 1: kinetics data collected using Adventure DVS and Intrinsic DVS instruments (Surface Measurement Systems).\nFiles must be uploaded in MS Excel file format, only \'DVS Data\' tab is required.\nOption 2: kinetics data in generic \'.csv\' file format.\nFiles must contain following columns:\nTime[min],Mass[mg],Temperature[degreeC],RH_target[%],RH_measured[%]')
         continue  
     
     ################# Import kinetics data ################
@@ -217,10 +250,8 @@ while True:
         
         ## break down kinetics to individual adsorption-desorption cycles
         Sorption_kinetics.data['cycle_split'] = Sorption_kinetics.data['RH_target'].diff().fillna(0)
-        Sorption_kinetics.data['cycle_split_temp'] = Sorption_kinetics.data['temp_target'].diff().fillna(0)
         split_index_ads = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split']>0)].to_list()
         split_index_des = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split']<0)].to_list()
-        split_index_temp = Sorption_kinetics.data.index[(Sorption_kinetics.data['cycle_split_temp']!=0)].to_list()
 
         ## plot kinetics
         fig, ax = plt.subplots(figsize=(12, 9), dpi=int(values['dpi']))
@@ -361,8 +392,6 @@ while True:
             temp_index = [split_index_des[cycle_number], split_index_ads[cycle_number+1]]
         except: 
             temp_index = [split_index_des[cycle_number], Sorption_kinetics.data.index.max()]
-        if [i for i in split_index_temp if (i>temp_index[0])&(i<temp_index[1])] != []:
-            temp_index = [temp_index[0], min(min([i for i in split_index_temp if (i>temp_index[0])&(i<temp_index[1])]), temp_index[1])]
         try:
             w_des = pd.DataFrame({'time':Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['time'] - Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['time'].min(), 
                                   'uptake':Sorption_kinetics.data.iloc[temp_index[0]:temp_index[1], :]['uptake'], 
@@ -499,7 +528,8 @@ while True:
         if values['isotherm_file_type'] == 'CSV (Comma delimited) (*.csv)':
             with open(path+values['isotherm_file']+'.csv', 'w') as file:
                 file.write('Sample_material_id \"{}\"\n'.format(Sorption_kinetics.filename))
-                file.write('Instrument {}\n'.format(Sorption_kinetics.instrument))
+                try: file.write('Instrument {}\n'.format(Sorption_kinetics.instrument))
+                except: file.write('Instrument unknown\n')
                 file.write('Adsorptive Water\n')
                 file.write('Temperature {} K\n'.format(str(round(df_export_temperature+273.15))))
                 file.write('Sample_mass {} mg\n'.format(Sorption_kinetics.sample_mass))
@@ -525,7 +555,8 @@ while True:
             with open(path+values['isotherm_file']+'.aif', 'w') as file:
                 file.write('data_\n')
                 file.write('_sample_material_id \"{}\"\n'.format(Sorption_kinetics.filename))
-                file.write('_exptl_instrument {}\n'.format(Sorption_kinetics.instrument))
+                try: file.write('_exptl_instrument {}\n'.format(Sorption_kinetics.instrument))
+                except: file.write('Instrument unknown\n')
                 file.write('_exptl_adsorptive Water\n')
                 file.write('_exptl_temperature {}\n'.format(str(round(df_export_temperature+273.15))))
                 file.write('_adsnt_sample_mass {}\n'.format(Sorption_kinetics.sample_mass))
