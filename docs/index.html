@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sorption Kinetics Isotherm Determination (SKID) Method | SKID</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="Sorption Kinetics Isotherm Determination (SKID) Method">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Rapid determination of experimental sorption isotherms from non-equilibrium sorption kinetics">
+<meta property="og:description" content="Rapid determination of experimental sorption isotherms from non-equilibrium sorption kinetics">
+<link rel="canonical" href="https://andreybezrukov.github.io/SKID/">
+<meta property="og:url" content="https://andreybezrukov.github.io/SKID/">
+<meta property="og:site_name" content="SKID">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Sorption Kinetics Isotherm Determination (SKID) Method">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Rapid determination of experimental sorption isotherms from non-equilibrium sorption kinetics","headline":"Sorption Kinetics Isotherm Determination (SKID) Method","name":"SKID","url":"https://andreybezrukov.github.io/SKID/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="index_files/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/SKID/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://andreybezrukov.github.io/SKID/">SKID</a></h1>
+      
+
+      <h1 id="sorption-kinetics-isotherm-determination-skid-method">Sorption Kinetics Isotherm Determination (SKID) Method</h1>
+<h1><img src="index_files/img0.png" style="padding:10px;" width="1000"></h1>
+<p>The SKID method enables the rapid determination of experimental 
+sorption isotherms from non-equilibrium gravimetric sorption kinetics 
+data. This approach is <em>ca.</em> 10 times faster than conventional 
+equilibrium-based isotherm determination methods and has potential for 
+high-throughput testing of sorbent materials.</p>
+
+<p>The SKID method has been published in the <em>Chem</em> peer-reviewed journal (<a href="https://doi.org/10.1016/j.chempr.2024.01.011">DOI:10.1016/j.chempr.2024.01.011</a>). The method has been demonstrated to work for water and C8 aromatics vapours, as well as for CO<sub>2</sub> gas. 
+The code used for data analysis and visualizations in the manuscript is available in the <a href="https://github.com/AndreyBezrukov/SKID/tree/main/Manuscript">Manuscript</a>
+ folder of this <a href="https://github.com/AndreyBezrukov/SKID">GitHub repository</a>. Additionally, corresponding data is 
+availalbe at Zenodo repository: <a href="https://doi.org/10.5281/zenodo.7600754">https://doi.org/10.5281/zenodo.7600754</a>.</p>
+
+<h2 id="graphical-user-interface-for-skid-data-analysis-software">Graphical User Interface for SKID Data Analysis Software<a class="anchorjs-link " href="#graphical-user-interface-for-skid-data-analysis-software" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>To facilitate the adoption of the SKID method, we have developed an 
+easy-to-use Graphical User Interface (GUI) for SKID data analysis 
+software.</p>
+
+<p>There are two options for running SKID GUI data analysis software: using the executable or running the Python code.</p>
+
+<h3 id="running-skid-gui-executable">Running SKID GUI executable<a class="anchorjs-link " href="#running-skid-gui-executable" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Download and run <code class="language-plaintext highlighter-rouge">SKID_GUI.exe</code> executable from latest <a href="https://github.com/AndreyBezrukov/SKID/releases">releases</a> .</p>
+
+<p>The executable is currently supported for <em>Windows 10</em>.</p>
+
+<h3 id="running-skid-gui-python-code">Running SKID GUI Python code<a class="anchorjs-link " href="#running-skid-gui-python-code" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Download and run <a href="https://andreybezrukov.github.io/SKID/SKID_GUI.py">SKID_GUI.py</a> code.</p>
+
+<h2 id="how-to-use-skid-gui">How to Use SKID GUI<a class="anchorjs-link " href="#how-to-use-skid-gui" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>We provide a step-by-step tutorial on the rapid determination of 
+water vapor isotherms using sorption on MIL-100(Fe) material as an 
+example. Files required for this tutorial are available in <a href="https://github.com/AndreyBezrukov/SKID/tree/main/Examples">Examples</a> folder of this GitHub repository.</p>
+
+<h3 id="sorption-kinetics-measurement">Sorption kinetics measurement<a class="anchorjs-link " href="#sorption-kinetics-measurement" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Collect gravimetric humidity swing sorption data: kinetics in full adsorption and desorption cycle is required.</p>
+
+<p>For the MIL-100(Fe) example, we collected experimental kinetics data using the DVS Adventure instrument. The <a href="https://github.com/AndreyBezrukov/SKID/blob/main/Examples/MIL-100(Fe)_kinetics.mtd">MIL-100(Fe)_kinetics.mtd</a> DVS Adventure method file was used for the experiment: 0-60 % relative humidity swing with <em>dm/dt</em> = 0.05 %/min as equilibration criterion.</p>
+
+<p>SKID GUI supports two options for kinetics data files:</p>
+
+<ul>
+  <li><strong>Option 1</strong>: kinetics data in MS Excel format (<code class="language-plaintext highlighter-rouge">.xls</code> or <code class="language-plaintext highlighter-rouge">.xlsx</code>) from DVS Adventure and DVS Intrinsic instruments (Surface Measurement Systems). Only <code class="language-plaintext highlighter-rouge">DVS Data</code> tab is required for SKID method.</li>
+  <li><strong>Option 2</strong>: kinetics data in generic <code class="language-plaintext highlighter-rouge">.csv</code> file format. The file should contain following heading: <code class="language-plaintext highlighter-rouge">Time[min],Mass[mg],Temperature[degreeC],RH_target[%],RH_measured[%]</code></li>
+</ul>
+
+<h3 id="sorption-kinetics-data-analysis">Sorption kinetics data analysis<a class="anchorjs-link " href="#sorption-kinetics-data-analysis" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Run the <code class="language-plaintext highlighter-rouge">SKID_GUI</code> software. The Graphical User Interface (GUI) will load, as shown in the figure below.</p>
+<blockquote>
+  <p>Note that initial loading of the interface might be slow, please be patient</p>
+  <h1 id="-1"><img src="index_files/img1.PNG" style="padding:10px;" width="300"></h1>
+</blockquote>
+
+<h4 id="step-1-read-kinetics-data">Step 1: read kinetics data<a class="anchorjs-link " href="#step-1-read-kinetics-data" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<p>Select the <a href="https://andreybezrukov.github.io/SKID/Examples/MIL-100(Fe)-2024-02-04%2017-15-19.xls">MIL-100(Fe)-2024-02-04 17-15-19.xls</a> or <a href="https://andreybezrukov.github.io/SKID/Examples/MIL-100(Fe)-2024-02-04%2017-15-19.csv">MIL-100(Fe)-2024-02-04 17-15-19.csv</a> file by pressing the <code class="language-plaintext highlighter-rouge">Browse</code> button and then press the <code class="language-plaintext highlighter-rouge">Open</code>
+ button. The software will read the file and plot the kinetics data in a
+ new window, as illustrated below. The software will automatically 
+identify the potential humidity swing adsorption/desorption cycle 
+suitable for SKID calculations (<strong>cycle number 1</strong>).</p>
+<h1 id="-2"><img src="index_files/img2.PNG" style="padding:10px;" width="600"></h1>
+
+<h4 id="step-2-determine-isotherm">Step 2: determine isotherm<a class="anchorjs-link " href="#step-2-determine-isotherm" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<p>Select the corresponding cycle number plotted in the previous step (<strong>cycle number 1</strong>). Determine the sorption isotherm by pressing the <code class="language-plaintext highlighter-rouge">Calculate isotherm</code> button. The calculation results will open in a new window, as shown below.</p>
+<h1 id="-3"><img src="index_files/img3.PNG" style="padding:10px;" width="600"></h1>
+
+<h4 id="step-3-save-result">Step 3: save result<a class="anchorjs-link " href="#step-3-save-result" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<p>Save the isotherm calculation results in a file by selecting <code class="language-plaintext highlighter-rouge">file name</code> and <code class="language-plaintext highlighter-rouge">file type</code> (<code class="language-plaintext highlighter-rouge">CSV</code> or <code class="language-plaintext highlighter-rouge">AIF</code> [<a href="https://doi.org/10.1021/acs.langmuir.1c00122">Adsorption Isotherm File</a>]) and then pressing the <code class="language-plaintext highlighter-rouge">Save</code> button.</p>
+
+<h2 id="citing-this-work">Citing this work<a class="anchorjs-link " href="#citing-this-work" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>If you find the SKID method useful, please consider citing the related publication:</p>
+
+<blockquote>
+  <p>Bezrukov, A. A.;  O’Hearn, D. J.;  Gascón-Pérez, V.;  Matos, C. R. 
+M. O.;  Koupepidou, K.;  Darwish, S.;  Sanda, S.;  Kumar, N.;  Li, X.;  
+Shivanna, M.; Zaworotko, M. J.;
+Rapid Determination of Experimental Sorption Isotherms from 
+Non-Equilibrium Sorption Kinetic Data.
+<em>Chem</em>, 2024
+<a href="https://doi.org/10.1016/j.chempr.2024.01.011">DOI:10.1016/j.chempr.2024.01.011</a></p>
+</blockquote>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/AndreyBezrukov/SKID/edit/main/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="index_files/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  
+
+</body></html>
